@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Untuk menampilkan selamat datang
+Route::get('/', [PageController::class, 'index']);
+
+// Menampilkan data diri
+Route::get('/about', [PageController::class, 'about']);
+
+// Menambilkan id dari param
+Route::get('/articles/{id}', [PageController::class, 'articles']);
